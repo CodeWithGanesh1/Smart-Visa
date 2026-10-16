@@ -21,7 +21,15 @@ app.set('trust proxy', 1);
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
 const origins = (process.env.CLIENT_URL || 'https://smart-visa-357h.vercel.app').split(',').map((s) => s.trim().replace(/\/$/, ''));
-app.use(cors({ origin: (origin, cb) => (!origin || origins.includes(origin) ? cb(null, true) : cb(new Error('Not allowed by CORS'))) }));
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "https://smart-visa-357h.vercel.app",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json({ limit: '4mb' }));
 
 app.get('/', (req, res) => res.json({ name: 'Smart Visa & Travel Document Tracker API', status: 'ok' }));
