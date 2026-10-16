@@ -1,5 +1,5 @@
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const appUrl = () => (process.env.CLIENT_URL || 'http://localhost:5173').split(',')[0].trim().replace(/\/$/, '');
+const appUrl = () => (process.env.CLIENT_URL || 'https://smart-visa-357h.vercel.app').split(',')[0].trim().replace(/\/$/, '');
 
 // Branded HTML email. `paragraphs` must already be escaped HTML strings.
 function layout({ heading, greeting, paragraphs = [], cta, footer }) {

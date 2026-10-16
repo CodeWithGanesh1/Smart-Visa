@@ -1,4 +1,4 @@
-const BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const BASE = (import.meta.env.VITE_API_URL || ' https://smart-visa.onrender.com').replace(/\/$/, '');
 
 export async function api(path, { method = 'GET', body, blob } = {}) {
   const token = localStorage.getItem('token');
