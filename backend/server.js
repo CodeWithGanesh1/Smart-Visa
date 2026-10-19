@@ -20,8 +20,12 @@ const app = express();
 app.set('trust proxy', 1);
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
-const origins = (process.env.CLIENT_URL || 'https://smart-visa-357h.vercel.app').split(',').map((s) => s.trim().replace(/\/$/, ''));
-const cors = require("cors");
+const origins = (
+  process.env.CLIENT_URL ||
+  "https://smart-visa-357h.vercel.app"
+)
+  .split(",")
+  .map((s) => s.trim().replace(/\/$/, ""));
 
 app.use(
   cors({
